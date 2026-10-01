@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FitBuddy — AI Fitness Planner</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand"><span class="brand-mark">F</span><div><strong>FitBuddy</strong><small>AI Fitness Planner</small></div></div>
+    <a href="#planner" class="top-link">Create plan</a>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div>
+        <p class="eyebrow">PERSONAL FITNESS, SIMPLIFIED</p>
+        <h1>Your workout plan,<br><span>built around you.</span></h1>
+        <p class="hero-copy">Tell FitBuddy your goal, experience and available equipment. Get a practical multi-day workout, nutrition and recovery plan in seconds.</p>
+        <div class="trust-row"><span>✓ No database</span><span>✓ Fast local backend</span><span>✓ Gemini-ready</span></div>
+      </div>
+      <div class="hero-card"><div class="pulse">●</div><b>7-day example</b><span>Strength · Mobility · Recovery</span><div class="mini-bars"><i></i><i></i><i></i><i></i><i></i></div></div>
+    </section>
+
+    <section id="planner" class="planner-wrap">
+      <div class="section-head"><div><p class="eyebrow">STEP 1</p><h2>Build your plan</h2></div><span id="status" class="status">Ready</span></div>
+      <form id="planForm">
+        <div class="grid">
+          <label>Primary goal<select id="goal" required><option>Weight loss</option><option>Muscle gain</option><option>Strength</option><option>General fitness</option></select></label>
+          <label>Experience<select id="level" required><option>Beginner</option><option>Intermediate</option><option>Advanced</option></select></label>
+          <label>Age<input id="age" type="number" min="13" max="100" value="20" required></label>
+          <label>Equipment<select id="equipment" required><option>None</option><option>Dumbbells</option><option>Resistance bands</option><option>Home gym</option><option>Full gym</option></select></label>
+          <label>Minutes per workout<select id="minutes" required><option value="20">20 minutes</option><option value="30" selected>30 minutes</option><option value="45">45 minutes</option><option value="60">60 minutes</option></select></label>
+          <label>Plan length<select id="days" required><option value="3">3 days</option><option value="5">5 days</option><option value="7" selected>7 days</option></select></label>
+          <label>Diet preference<select id="diet" required><option>Balanced</option><option>Vegetarian</option><option>Vegan</option><option>High protein</option></select></label>
+          <label class="wide">Anything else? <span>optional</span><textarea id="notes" maxlength="500" placeholder="For example: prefer home workouts, limited space, morning training..."></textarea></label>
+        </div>
+        <button id="submitBtn" type="submit"><span>Generate my plan</span><b>→</b></button>
+      </form>
+    </section>
+
+    <section id="results" class="results hidden">
+      <div class="section-head"><div><p class="eyebrow">STEP 2</p><h2 id="planTitle">Your plan</h2><p id="planSummary"></p></div><button id="printBtn" class="secondary">Print / Save PDF</button></div>
+      <div id="workouts" class="workouts"></div>
+      <div class="two-col"><div class="info-card"><h3>Nutrition tips</h3><ul id="nutrition"></ul></div><div class="info-card"><h3>Recovery tips</h3><ul id="recovery"></ul></div></div>
+      <p id="source" class="source"></p>
+    </section>
+  </main>
+
+  <footer>FitBuddy • Frontend + FastAPI backend • No database required</footer>
+  <script src="/static/app.js"></script>
+</body>
+</html>
